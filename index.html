@@ -1102,7 +1102,19 @@
       .contact-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 768px) {
+    .nav-close {
+      display: none;
+      position: absolute;
+      top: 24px; right: 24px;
+      color: rgba(255,255,255,0.6);
+      font-size: 1.4rem;
+      padding: 8px;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .nav-close:hover { color: var(--white); }
+
+    @media (max-width: 1100px) {
       .main-nav { display: none; flex-direction: column; gap: 0; }
       .main-nav.open {
         display: flex;
@@ -1114,6 +1126,7 @@
         z-index: 99;
         overflow-y: auto;
       }
+      .main-nav.open .nav-close { display: block; }
       .main-nav.open a {
         font-size: 1.1rem;
         padding: 14px 0;
@@ -1122,6 +1135,8 @@
       }
       .btn-header { display: none; }
       .nav-toggle { display: flex; }
+    }
+    @media (max-width: 768px) {
       .apts-cards { grid-template-columns: 1fr; }
       .features-grid { grid-template-columns: 1fr 1fr; }
       .pricing-wrap { grid-template-columns: 1fr; }
@@ -1918,6 +1933,7 @@
       HLINKY<span class="logo-dot">.</span>cz
     </a>
     <nav class="main-nav" id="main-nav">
+      <button class="nav-close" id="nav-close" aria-label="Zavřít menu">✕</button>
       <a href="#apartments">Byty</a>
       <a href="#gallery">Fotogalerie</a>
       <a href="#location">Lokalita</a>
@@ -2867,15 +2883,21 @@ if (heroBg) setTimeout(() => heroBg.classList.add('loaded'), 100);
 ============================================= */
 const navToggle = document.getElementById('nav-toggle');
 const mainNav = document.getElementById('main-nav');
+const navClose = document.getElementById('nav-close');
+
+function closeNav() {
+  mainNav.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', false);
+  document.body.style.overflow = '';
+}
+
 navToggle.addEventListener('click', () => {
   const open = mainNav.classList.toggle('open');
   navToggle.setAttribute('aria-expanded', open);
   document.body.style.overflow = open ? 'hidden' : '';
 });
-mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  mainNav.classList.remove('open');
-  document.body.style.overflow = '';
-}));
+navClose.addEventListener('click', closeNav);
+mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
 
 /* =============================================
    SMOOTH SCROLL
