@@ -8,7 +8,7 @@
     </title>
     <meta
       name="description"
-      content="Moderní nájemní byty 1+kk a 2+kk s obchodními prostory v domě Hlinky 80 v Brně-střed. Podzemní parkování, výborná dostupnost centra a výstaviště. Rezervujte si prohlídku."
+      content="Moderní nájemní byty 1+kk a 2+kk v novostavbě Hlinky 80, Brno-střed. Obchodní prostory v přízemí. Podzemní parkování, tramvaj před domem. Dokončení 07/2027."
     />
     <link rel="canonical" href="https://www.hlinky.cz/" />
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
@@ -203,7 +203,7 @@
         inset: 0;
         background-image: url("images/hlinkybydleni.jpg");
         background-size: cover;
-        background-position: center 30%;
+        background-position: center center;
         transform: scale(1.05);
         transition: transform 8s ease-out;
       }
@@ -216,8 +216,8 @@
         background: linear-gradient(
           to top,
           rgba(15, 26, 22, 0.92) 0%,
-          rgba(15, 26, 22, 0.55) 45%,
-          rgba(15, 26, 22, 0.25) 100%
+          rgba(15, 26, 22, 0.65) 45%,
+          rgba(15, 26, 22, 0.4) 100%
         );
       }
       .hero-content {
@@ -261,7 +261,7 @@
       }
       .hero-desc {
         font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-        color: rgba(255, 255, 255, 0.72);
+        color: rgba(255, 255, 255, 0.82);
         max-width: 660px;
         margin-bottom: 36px;
         line-height: 1.7;
@@ -534,6 +534,8 @@
         transition:
           box-shadow 0.25s,
           transform 0.25s;
+        display: flex;
+        flex-direction: column;
       }
       .apt-card:hover {
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
@@ -552,6 +554,7 @@
         margin-bottom: 20px;
         padding-bottom: 20px;
         border-bottom: 1px solid var(--cream-dark);
+        flex: 1;
       }
       .apt-features {
         list-style: none;
@@ -2387,7 +2390,7 @@
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <div class="container">
-          <div class="hero-eyebrow">Brno – Hlinky 70 · 74 · 80</div>
+          <div class="hero-eyebrow">Brno – Hlinky 80</div>
           <h1>Nájemní bydlení<br />v Brně na ulici <em>Hlinky</em></h1>
           <p class="hero-desc">
             Ranní káva na terase s výhledem do zeleně – a za 5 minut tramvají
@@ -2397,7 +2400,7 @@
           </p>
           <div class="hero-actions">
             <a href="#apartments" class="btn-primary">Prohlédnout byty</a>
-            <a href="#contact" class="btn-ghost">Rezervovat prohlídku</a>
+            <a href="#contact" class="btn-ghost">Kontaktujte nás</a>
           </div>
           <div class="hero-stats">
             <div>
@@ -2457,16 +2460,16 @@
           ><span class="marquee-dot"></span>Brno-střed</span
         >
         <span class="marquee-item"
-          ><span class="marquee-dot"></span>Nadstandardní vybavení</span
+          ><span class="marquee-dot"></span>Energetická třída A+</span
         >
         <span class="marquee-item"
           ><span class="marquee-dot"></span>Novira Estate SE</span
         >
         <span class="marquee-item"
-          ><span class="marquee-dot"></span>Tramvaj naproti domu</span
+          ><span class="marquee-dot"></span>Tramvaj před domem</span
         >
         <span class="marquee-item"
-          ><span class="marquee-dot"></span>1+kk · 2+kk · Obchodní prostory</span
+          ><span class="marquee-dot"></span>Obchodní prostory v přízemí</span
         >
         <span class="marquee-item"
           ><span class="marquee-dot"></span>115 bytových jednotek</span
@@ -2481,16 +2484,16 @@
           ><span class="marquee-dot"></span>Brno-střed</span
         >
         <span class="marquee-item"
-          ><span class="marquee-dot"></span>Nadstandardní vybavení</span
+          ><span class="marquee-dot"></span>Energetická třída A+</span
         >
         <span class="marquee-item"
           ><span class="marquee-dot"></span>Novira Estate SE</span
         >
         <span class="marquee-item"
-          ><span class="marquee-dot"></span>Tramvaj naproti domu</span
+          ><span class="marquee-dot"></span>Tramvaj před domem</span
         >
         <span class="marquee-item"
-          ><span class="marquee-dot"></span>1+kk · 2+kk · Obchodní prostory</span
+          ><span class="marquee-dot"></span>Obchodní prostory v přízemí</span
         >
       </div>
     </div>
@@ -2513,7 +2516,7 @@
         <div class="apts-text" data-reveal style="--d: 120ms">
           <div class="label-tag">Byty a dispozice</div>
           <h2 class="section-title">
-            Manažerské byty<br />pro pohodlné bydlení
+            Pohodlné bydlení<br />v moderním stylu
           </h2>
           <p class="section-desc">
             Každý byt je navržen s důrazem na maximum světla, úložného prostoru
@@ -2525,7 +2528,7 @@
             <li>Plně vybavené nábytkem a kuchyňskými spotřebiči</li>
             <li>Terasa nebo balkon v každém bytě</li>
           </ul>
-          <a href="#contact" class="btn-primary">Mám zájem o prohlídku</a>
+          <a href="#contact" class="btn-primary">Kontaktujte nás</a>
         </div>
       </div>
 
@@ -2538,56 +2541,56 @@
       >
         <div class="apts-cards">
           <div class="apt-card" data-reveal>
-            <div class="apt-type">1+kk</div>
+            <div class="apt-type">Byty 1+kk</div>
             <div class="apt-meta">
-              <span class="apt-meta-tag">cca 32–40 m²</span>
+              <span class="apt-meta-tag">cca 25–40 m²</span>
               <span class="apt-meta-tag">Pro 1–2 osoby</span>
             </div>
             <p class="apt-desc">
-              Ideální pro jednotlivce nebo páry. Promyšlená dispozice s maximem
-              světla.
+              Moderní kompaktní byt s efektivně řešeným prostorem. Ideální pro
+              studenty, mladé profesionály, manažery.
             </p>
             <ul class="apt-features">
-              <li>Praktická dispozice s dostatkem světla</li>
+              <li>Promyšlená dispozice s maximem světla</li>
               <li>Plně vybavená kuchyňská linka</li>
-              <li>Připraveno pro moderní technologie</li>
-              <li>Sklep nebo úložný prostor v ceně</li>
+              <li>Balkon nebo lodžie</li>
+              <li>Energie + internet v ceně</li>
             </ul>
-            <div class="apt-price">od 15 000 Kč / měs.</div>
+            <div class="apt-price">od 21 000 Kč / měs.</div>
           </div>
           <div class="apt-card" data-reveal style="--d: 80ms">
-            <div class="apt-type">2+kk</div>
+            <div class="apt-type">Byty 2+kk</div>
             <div class="apt-meta">
-              <span class="apt-meta-tag">cca 50–65 m²</span>
+              <span class="apt-meta-tag">cca 50–70 m²</span>
               <span class="apt-meta-tag">Pro páry a rodiny</span>
             </div>
             <p class="apt-desc">
-              Komfortní bydlení pro páry nebo malou rodinu. Balkón nebo terasa u
-              vybraných bytů.
+              Komfortní bydlení pro páry nebo malou rodinu. Velkorysá terasa
+              u všech bytů.
             </p>
             <ul class="apt-features">
               <li>Oddělená ložnice a obývací pokoj</li>
-              <li>Velkorysá terasa nebo balkon</li>
-              <li>Energeticky úsporný provoz A+</li>
-              <li>Parkovací stání v ceně nebo za příplatek</li>
+              <li>Terasa s luxusním výhledem</li>
+              <li>Parkovací stání či sklep k pronájmu</li>
+              <li>Energie v ceně</li>
             </ul>
-            <div class="apt-price">od 18 000 Kč / měs.</div>
+            <div class="apt-price">od 39 000 Kč / měs.</div>
           </div>
           <div class="apt-card" data-reveal style="--d: 160ms">
             <div class="apt-type">Obchodní prostory</div>
             <div class="apt-meta">
-              <span class="apt-meta-tag">cca 60–150 m²</span>
-              <span class="apt-meta-tag">Přízemí objektu</span>
+              <span class="apt-meta-tag">cca 50–200 m²</span>
+              <span class="apt-meta-tag">Ideální pro ordinaci, kancelář nebo kavárnu</span>
             </div>
             <p class="apt-desc">
-              Reprezentativní obchodní prostory v přízemí moderní novostavby –
-              ideální pro ordinaci, kancelář nebo kavárnu.
+              Obchodní jednotky – prostor pro vaše podnikání. V parteru domů
+              přístupné přímo z ulice.
             </p>
             <ul class="apt-features">
-              <li>Výloha do ulice Hlinky</li>
-              <li>Bezbariérový přístup</li>
+              <li>Prosklené výlohy</li>
+              <li>Přístupné přímo z ulice</li>
+              <li>Skladovací zázemí</li>
               <li>Možnost úpravy dispozice dle nájemce</li>
-              <li>Parkovací stání pro zákazníky</li>
             </ul>
             <div class="apt-price">Cena na vyžádání</div>
           </div>
@@ -2613,9 +2616,9 @@
             >
           </h2>
           <p class="section-desc section-desc-light">
-            Hlinky 80 není jen adresa – je to způsob života. Klidná vilová čtvrť
-            na dosah tramvaje, centra i výstaviště. Ideální pro manažery, páry i
-            rodiny, kteří nechtějí dělat kompromisy.
+            Hlinky 80 stojí přímo u tramvajové zastávky – 5 minut do centra,
+            3 minuty na výstaviště. Klidná vilová čtvrť, parkování v domě,
+            energetická třída A+.
           </p>
           <div class="lifestyle-numbers" data-reveal style="--d: 120ms">
             <div class="lifestyle-num">
@@ -3077,7 +3080,7 @@
               Hlinky 80 · Brno-střed · Dokončení 07/2027
             </p>
             <a href="#contact" class="parallax-break-link">
-              Mám zájem o prohlídku
+              Kontaktujte nás
               <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
             </a>
           </div>
@@ -3297,11 +3300,11 @@
               <tbody>
                 <tr>
                   <td>Byty 1+kk</td>
-                  <td>od 15 000 Kč/měs.</td>
+                  <td>od 21 000 Kč/měs.</td>
                 </tr>
                 <tr>
                   <td>Byty 2+kk</td>
-                  <td>od 18 000 Kč/měs.</td>
+                  <td>od 39 000 Kč/měs.</td>
                 </tr>
                 <tr>
                   <td>Obchodní jednotky</td>
@@ -3326,7 +3329,7 @@
               <li>Podzemní parkování v ceně nebo za příplatek</li>
               <li>Možnost pronájmu již od srpna 2027</li>
               <li>Pro dřívější bydlení nabízíme byty v domě Hlinky 70</li>
-              <li>Kauce ve výši 3 měsíčních nájmů</li>
+              <li>Kauce ve výši 1 měsíčního nájmu</li>
             </ul>
             <div class="terms-cta">
               <a href="#contact" class="btn-gold">Kontaktujte nás</a>
@@ -3425,7 +3428,7 @@
               <div class="faq-answer" role="region">
                 <div class="faq-answer-inner">
                   <p>
-                    Kauce činí standardně <strong>3 měsíční nájmy</strong>. Je
+                    Kauce činí standardně <strong>1 měsíční nájem</strong>. Je
                     splatná před podpisem nájemní smlouvy a po skončení nájmu ji
                     vrátíme ve lhůtě stanovené zákonem.
                   </p>
@@ -3444,9 +3447,8 @@
               <div class="faq-answer" role="region">
                 <div class="faq-answer-inner">
                   <p>
-                    Chov domácích zvířat je možný po individuální dohodě s
-                    pronajímatelem. Podmínky závisí na druhu a počtu zvířat.
-                    Neváhejte se zeptat při sjednávání smlouvy.
+                    Chov domácích zvířat bohužel není možný. Toto pravidlo
+                    platí pro všechny nájemníky bez výjimky.
                   </p>
                 </div>
               </div>
@@ -3511,7 +3513,7 @@
               <p style="color: var(--muted)">
                 Preferujete telefon? Zavolejte nám v pracovní dny 9–17 hod.
               </p>
-              <a href="tel:+420770318040" class="btn-gold">+420 770 318 040</a>
+              <a href="tel:+420728782782" class="btn-gold">+420 728 782 782</a>
             </div>
           </div>
         </div>
@@ -3532,7 +3534,7 @@
 
         <div class="contact-grid">
           <div class="contact-info" data-reveal>
-            <h3>Jsme tu pro vás</h3>
+            <h3>Ivana Kostúrová</h3>
             <div class="contact-item">
               <div class="contact-icon-wrap">
                 <svg viewBox="0 0 24 24">
@@ -3544,7 +3546,7 @@
               <div>
                 <div class="contact-item-label">Telefon</div>
                 <div class="contact-item-value">
-                  <a href="tel:+420770318040">+420 770 318 040</a>
+                  <a href="tel:+420728782782">+420 728 782 782</a>
                 </div>
               </div>
             </div>
@@ -3595,8 +3597,8 @@
           </div>
 
           <div class="contact-form-wrap" data-reveal style="--d: 120ms">
-            <h3>Napište nám</h3>
-            <form id="contact-form" novalidate>
+            <h3>Zájem o pronájem</h3>
+            <form id="contact-form" action="https://formsubmit.co/info@hlinky.cz" method="POST">
               <div class="form-row-2">
                 <div class="form-field">
                   <label for="c-name">Jméno</label>
@@ -3662,11 +3664,11 @@
           <h2>Máte zájem o byt<br />na ulici <em>Hlinky 80</em>?</h2>
           <p>
             Zajistěte si místo mezi prvními. Byty se plní rychle – napište nám
-            ještě dnes a rezervujte si prohlídku.
+            ještě dnes.
           </p>
           <div class="big-cta-actions">
-            <a href="#contact" class="btn-primary">Rezervovat prohlídku</a>
-            <a href="tel:+420770318040" class="btn-ghost">+420 770 318 040</a>
+            <a href="#contact" class="btn-primary">Kontaktujte nás</a>
+            <a href="tel:+420728782782" class="btn-ghost">+420 728 782 782</a>
           </div>
         </div>
       </div>
@@ -3702,7 +3704,7 @@
             <div class="footer-contact-item">Novira Estate SE</div>
             <div class="footer-contact-item">Hlinky 80, 603 00 Brno</div>
             <div class="footer-contact-item">
-              <a href="tel:+420770318040">+420 770 318 040</a>
+              <a href="tel:+420728782782">+420 728 782 782</a>
             </div>
             <div class="footer-contact-item">
               <a href="mailto:info@hlinky.cz">info@hlinky.cz</a>
@@ -3739,7 +3741,7 @@
           <line x1="8" y1="2" x2="8" y2="6" />
           <line x1="3" y1="10" x2="21" y2="10" />
         </svg>
-        Rezervovat prohlídku
+        Kontaktujte nás
       </a>
     </div>
 
@@ -4016,8 +4018,22 @@
         .getElementById("contact-form")
         ?.addEventListener("submit", (e) => {
           e.preventDefault();
-          alert("Děkujeme za zprávu! Ozveme se vám s aktuální nabídkou.");
-          e.target.reset();
+          const form = e.target;
+          const data = new FormData(form);
+          fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          }).then(r => {
+            if (r.ok) {
+              alert("Děkujeme za zprávu! Ozveme se vám s aktuální nabídkou.");
+              form.reset();
+            } else {
+              alert("Odeslání se nezdařilo. Zkuste to prosím znovu nebo nás kontaktujte na info@hlinky.cz.");
+            }
+          }).catch(() => {
+            alert("Odeslání se nezdařilo. Zkuste to prosím znovu nebo nás kontaktujte na info@hlinky.cz.");
+          });
         });
       document
         .getElementById("newsletter-form")
