@@ -524,7 +524,8 @@
       .apts-cards {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: clamp(16px, 2vw, 24px);
+        grid-template-rows: auto auto 1fr auto auto;
+        gap: 0 clamp(16px, 2vw, 24px);
       }
       .apt-card {
         background: var(--white);
@@ -534,8 +535,9 @@
         transition:
           box-shadow 0.25s,
           transform 0.25s;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 5;
       }
       .apt-card:hover {
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
@@ -554,7 +556,6 @@
         margin-bottom: 20px;
         padding-bottom: 20px;
         border-bottom: 1px solid var(--cream-dark);
-        flex: 1;
       }
       .apt-features {
         list-style: none;
