@@ -554,8 +554,6 @@
         font-size: 0.9rem;
         color: var(--muted);
         margin-bottom: 20px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid var(--cream-dark);
       }
       .apt-features {
         list-style: none;
@@ -2148,6 +2146,36 @@
         padding-top: 16px;
         border-top: 1px solid var(--cream-dark);
       }
+      .apt-download {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 14px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--dark);
+        background: transparent;
+        border: 1px solid var(--gold);
+        padding: 10px 16px;
+        border-radius: 2px;
+        transition: background 0.2s, color 0.2s;
+        text-decoration: none;
+      }
+      .apt-download:hover {
+        background: var(--gold);
+        color: var(--dark);
+      }
+      .apt-download svg {
+        width: 14px;
+        height: 14px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
 
       /* =============================================
        TESTIMONIALS
@@ -2509,7 +2537,7 @@
         <div class="apts-image" data-reveal>
           <img
             src="images/indoor-1.jpg"
-            alt="Interiér bytu Hlinky 80"
+            alt="Interiér bytu Hlinky"
             loading="lazy"
           />
           <div class="apts-image-badge">Plně vybavené</div>
@@ -2524,10 +2552,10 @@
             a komfortu při každodenním životě.
           </p>
           <ul class="checklist">
-            <li>Velkorysý obývací prostor s kuchyňským koutem</li>
-            <li>Prostorná koupelna se sprchou</li>
-            <li>Plně vybavené nábytkem a kuchyňskými spotřebiči</li>
-            <li>Terasa nebo balkon v každém bytě</li>
+            <li>Velkorysý obývací prostor zařízen moderním nábytkem</li>
+            <li>Kuchyňský kout plně vybaven spotřebiči</li>
+            <li>Terasa nebo balkon k dispozici</li>
+            <li>Možnost pronájmu parkovacího místa</li>
           </ul>
           <a href="#contact" class="btn-primary">Kontaktujte nás</a>
         </div>
@@ -2551,13 +2579,11 @@
               Moderní kompaktní byt s efektivně řešeným prostorem. Ideální pro
               studenty, mladé profesionály, manažery.
             </p>
-            <ul class="apt-features">
-              <li>Promyšlená dispozice s maximem světla</li>
-              <li>Plně vybavená kuchyňská linka</li>
-              <li>Balkon nebo lodžie</li>
-              <li>Energie + internet v ceně</li>
-            </ul>
             <div class="apt-price">od 21 000 Kč / měs.</div>
+            <a href="byty/1kk-vzor.html" target="_blank" class="apt-download">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Stáhnout kartu bytu
+            </a>
           </div>
           <div class="apt-card" data-reveal style="--d: 80ms">
             <div class="apt-type">Byty 2+kk</div>
@@ -2569,13 +2595,8 @@
               Komfortní bydlení pro páry nebo malou rodinu. Balkón nebo terasa u
               vybraných bytů.
             </p>
-            <ul class="apt-features">
-              <li>Oddělená ložnice a obývací pokoj</li>
-              <li>Velkorysá terasa nebo balkon</li>
-              <li>Energeticky úsporný provoz A+</li>
-              <li>Parkovací stání</li>
-            </ul>
             <div class="apt-price">od 39 000 Kč / měs.</div>
+            <div class="apt-download-placeholder" aria-hidden="true"></div>
           </div>
           <div class="apt-card" data-reveal style="--d: 160ms">
             <div class="apt-type">Obchodní prostory</div>
@@ -2587,13 +2608,8 @@
               Reprezentativní obchodní prostory v přízemí moderní novostavby –
               ideální pro ordinaci, kancelář nebo kavárnu.
             </p>
-            <ul class="apt-features">
-              <li>Výloha do ulice Hlinky</li>
-              <li>Bezbariérový přístup</li>
-              <li>Možnost úpravy dispozice dle nájemce</li>
-              <li>Parkovací stání pro zákazníky</li>
-            </ul>
             <div class="apt-price">Cena na vyžádání</div>
+            <div class="apt-download-placeholder" aria-hidden="true"></div>
           </div>
         </div>
       </div>
@@ -2840,7 +2856,7 @@
           <div class="step-title">Prohlídka na místě</div>
           <p class="step-desc">
             Domluvíme termín osobní prohlídky. Ukážeme vám byty, společné
-            prostory i podzemní parkoviště. Bez závazků.
+            prostory i podzemní parkoviště.
           </p>
           <div class="step-arrow">
             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
@@ -2856,8 +2872,8 @@
           </div>
           <div class="step-title">Podpis a nastěhování</div>
           <p class="step-desc">
-            Transparentní nájemní smlouva, předání bytu a klíčů. Vše vyřídíme
-            rychle a bez komplikací. Vítejte doma.
+            Transparentní nájemní smlouvy, předání bytu, a to vše vyřídíme
+            rychle. Vítejte doma.
           </p>
         </div>
       </div>
@@ -3103,37 +3119,27 @@
 
         <div class="timeline-wrap" data-reveal style="--d: 120ms">
           <div class="timeline-line"></div>
-          <div class="timeline-list">
+          <div class="timeline-list" style="grid-template-columns: repeat(4, 1fr);">
             <div class="timeline-item done">
               <div class="timeline-dot"></div>
-              <div class="timeline-date">Q4 2024</div>
-              <div class="timeline-label">Projektová dokumentace</div>
-            </div>
-            <div class="timeline-item done">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">Q1 2025</div>
-              <div class="timeline-label">Stavební povolení</div>
-            </div>
-            <div class="timeline-item done">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">Q2 2025</div>
+              <div class="timeline-date">09/2025</div>
               <div class="timeline-label">Zahájení výstavby</div>
             </div>
             <div class="timeline-item active">
               <div class="timeline-dot"></div>
-              <div class="timeline-date">Q1 2026</div>
-              <div class="timeline-label">Hrubá stavba – vrchní část</div>
+              <div class="timeline-date">12/2026</div>
+              <div class="timeline-label">Ukončení hrubé stavby</div>
               <span class="timeline-active-badge">Právě nyní</span>
             </div>
             <div class="timeline-item future">
               <div class="timeline-dot"></div>
-              <div class="timeline-date">Q4 2026</div>
-              <div class="timeline-label">Interiéry & vybavení</div>
+              <div class="timeline-date">03/2027</div>
+              <div class="timeline-label">Vzorový byt k prohlídkám</div>
             </div>
             <div class="timeline-item future">
               <div class="timeline-dot"></div>
-              <div class="timeline-date">07/2027</div>
-              <div class="timeline-label">Předání bytů nájemníkům</div>
+              <div class="timeline-date">08/2027</div>
+              <div class="timeline-label">Zahájení pronájmu</div>
             </div>
           </div>
 
@@ -3219,7 +3225,7 @@
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="section section-cream-dark" id="testimonials">
+    <section class="section section-cream-dark" id="testimonials" style="display:none">
       <div class="container">
         <div data-reveal>
           <div class="label-tag">Říkají o nás</div>
@@ -3294,29 +3300,27 @@
         <div class="pricing-wrap">
           <div class="price-table-card" data-reveal>
             <div class="price-table-head">
-              <h3>Hlinky 80</h3>
-              <div class="available">Dostupné od 08/2027</div>
+              <h3>Co je zahrnuto v ceně</h3>
+              <div class="available">Přehledně a bez skrytých poplatků</div>
             </div>
             <table class="price-table">
               <tbody>
-                <tr>
-                  <td>Byty 1+kk</td>
-                  <td>od 21 000 Kč/měs.</td>
-                </tr>
-                <tr>
-                  <td>Byty 2+kk</td>
-                  <td>od 39 000 Kč/měs.</td>
-                </tr>
-                <tr>
-                  <td>Obchodní jednotky</td>
-                  <td>Cena na vyžádání</td>
-                </tr>
+                <tr><td>Nájemné včetně spotřeby energií</td><td>✓</td></tr>
+                <tr><td>Připojení k internetu</td><td>✓</td></tr>
+                <tr><td>Údržba zahrady a společných prostor</td><td>✓</td></tr>
               </tbody>
             </table>
-            <div class="price-table-foot">
-              * Konkrétní ceny závisí na velikosti bytu, podlaží a vývoji trhu.
-              Kontaktujte nás pro aktuální nabídku.
+            <div class="price-table-head" style="border-top:1px solid rgba(0,0,0,0.06)">
+              <h3>Služby za příplatek</h3>
             </div>
+            <table class="price-table">
+              <tbody>
+                <tr><td>Parkovací místo</td><td>+</td></tr>
+                <tr><td>Sdílená prádelna</td><td>+</td></tr>
+                <tr><td>Úklid bytu</td><td>+</td></tr>
+                <tr><td>Výměna ložního prádla</td><td>+</td></tr>
+              </tbody>
+            </table>
           </div>
 
           <div class="terms-dark-card" data-reveal style="--d: 120ms">
@@ -3456,26 +3460,6 @@
             </div>
             <div class="faq-item">
               <button class="faq-question" aria-expanded="false">
-                Co zahrnují provozní náklady?
-                <span class="faq-icon"
-                  ><svg viewBox="0 0 12 12">
-                    <line x1="6" y1="1" x2="6" y2="11" />
-                    <line x1="1" y1="6" x2="11" y2="6" /></svg
-                ></span>
-              </button>
-              <div class="faq-answer" role="region">
-                <div class="faq-answer-inner">
-                  <p>
-                    K nájmu se přičítají zálohy na energie (elektřina, teplo,
-                    voda), úklid společných prostor a správu budovy. Díky
-                    nízkoenergetickému standardu A+ jsou provozní náklady
-                    nadstandardně nízké.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question" aria-expanded="false">
                 Jaká je minimální délka nájmu?
                 <span class="faq-icon"
                   ><svg viewBox="0 0 12 12">
@@ -3581,20 +3565,6 @@
                 </div>
               </div>
             </div>
-            <div class="contact-item">
-              <div class="contact-icon-wrap">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 21s6-7 6-11a6 6 0 0 0-12 0c0 4 6 11 6 11z" />
-                  <circle cx="12" cy="10" r="2.5" />
-                </svg>
-              </div>
-              <div>
-                <div class="contact-item-label">Adresa</div>
-                <div class="contact-item-value">
-                  Hlinky 80, Brno-střed, 603 00
-                </div>
-              </div>
-            </div>
           </div>
 
           <div class="contact-form-wrap" data-reveal style="--d: 120ms">
@@ -3631,11 +3601,11 @@
                   </select>
                 </div>
                 <div class="form-field">
-                  <label for="c-move">Kdy chcete nastoupit</label>
+                  <label for="c-move">Od kdy chcete bydlet</label>
                   <select id="c-move" name="movein">
-                    <option>Co nejdříve (Hlinky 70 / 74)</option>
-                    <option>08/2027 – otevření Hlinky 80</option>
-                    <option>Ještě nevím, mám zájem o info</option>
+                    <option>Co nejdříve</option>
+                    <option>Od 08/2027</option>
+                    <option>Chci jen více informací</option>
                   </select>
                 </div>
               </div>
@@ -3662,7 +3632,7 @@
       <div class="container big-cta-content">
         <div data-reveal>
           <div class="big-cta-eyebrow">Dostupné od 08/2027</div>
-          <h2>Máte zájem o byt<br />na ulici <em>Hlinky 80</em>?</h2>
+          <h2>Máte zájem o byt<br />na ulici <em>Hlinky</em>?</h2>
           <p>
             Zajistěte si místo mezi prvními. Byty se plní rychle – napište nám
             ještě dnes.
