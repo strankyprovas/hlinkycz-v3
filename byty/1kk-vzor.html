@@ -79,9 +79,10 @@
         padding: 24px;
       }
       .card-images .plan-wrap svg {
-        width: 100%;
-        height: auto;
-        max-height: 260px;
+        width: auto;
+        height: 100%;
+        max-width: 100%;
+        max-height: 320px;
       }
 
       /* ===== RIGHT: INFO ===== */
@@ -436,127 +437,144 @@
           <img src="../images/indoor-3.jpg" alt="Obývací pokoj" />
         </div>
         <div class="plan-wrap">
-          <!-- Floor plan inspired by NAB_B_1KK_Hlinky_80 (unit 2G.01) -->
-          <svg viewBox="0 0 360 400" xmlns="http://www.w3.org/2000/svg">
-            <!-- Outer walls -->
-            <rect x="15" y="15" width="330" height="370" stroke="#1a2720" stroke-width="3" fill="#faf8f3" />
+          <!-- Floor plan accurately inspired by NAB_B_1KK_Hlinky_80 unit 2G.01 -->
+          <svg viewBox="0 0 320 460" xmlns="http://www.w3.org/2000/svg">
+            <!-- Outer walls (concrete, thick) -->
+            <rect x="15" y="15" width="290" height="430" stroke="#1a2720" stroke-width="3.5" fill="#faf8f3" />
 
             <!-- Internal walls -->
-            <g stroke="#1a2720" stroke-width="2" fill="none">
-              <!-- Bathroom walls (top right) -->
-              <line x1="225" y1="15" x2="225" y2="98" />
-              <line x1="225" y1="98" x2="345" y2="98" />
-              <!-- Predsin / hallway divider -->
-              <line x1="15" y1="98" x2="225" y2="98" />
-              <!-- Wall before balcony -->
-              <line x1="15" y1="305" x2="345" y2="305" />
+            <g stroke="#1a2720" stroke-width="2.2" fill="none">
+              <!-- Bathroom dividing wall (vertical, top-right) -->
+              <line x1="195" y1="15" x2="195" y2="100" />
+              <!-- Bathroom dividing wall (horizontal) -->
+              <line x1="195" y1="100" x2="305" y2="100" />
+              <!-- Wall separating entry/kitchen zone from main room -->
+              <line x1="15" y1="125" x2="195" y2="125" />
+              <!-- Wall separating main room from balcony -->
+              <line x1="15" y1="345" x2="305" y2="345" />
             </g>
 
-            <!-- Door swings -->
+            <!-- Bathroom fixtures (right side, top) -->
+            <g stroke="#5d6f68" stroke-width="0.7" fill="#fff">
+              <!-- WC (against outer wall) -->
+              <rect x="275" y="22" width="22" height="28" rx="3" />
+              <ellipse cx="286" cy="36" rx="7" ry="9" fill="#faf8f3" />
+              <!-- Umyvadlo -->
+              <rect x="240" y="22" width="30" height="20" rx="2" />
+              <ellipse cx="255" cy="32" rx="11" ry="6" fill="#faf8f3" />
+              <!-- Sprchový kout -->
+              <rect x="205" y="58" width="40" height="40" />
+              <line x1="205" y1="58" x2="245" y2="98" />
+              <line x1="245" y1="58" x2="205" y2="98" />
+            </g>
+
+            <!-- Door swings (gold) -->
             <g stroke="#c9a96e" stroke-width="1.4" fill="none">
               <!-- Bathroom door -->
-              <path d="M 225 78 A 18 18 0 0 1 243 96" />
-              <line x1="225" y1="78" x2="225" y2="98" stroke-width="0" />
-              <!-- Entry door (bottom of corridor) -->
-              <path d="M 110 98 A 22 22 0 0 0 132 120" />
+              <path d="M 195 80 A 20 20 0 0 1 215 100" />
+              <!-- Entry door from corridor (top, between kitchen niche and bathroom) -->
+              <path d="M 175 32 A 20 20 0 0 0 195 52" />
+              <!-- Door from entry area to main room -->
+              <path d="M 145 125 A 22 22 0 0 0 167 147" />
               <!-- Balcony door -->
-              <path d="M 175 305 A 22 22 0 0 0 153 327" />
+              <path d="M 175 345 A 22 22 0 0 0 153 367" />
             </g>
 
-            <!-- Kitchen counter (top, in entry area) -->
+            <!-- Kuchyňská linka (along left/inner wall, top section) -->
             <g fill="#ede6cf" stroke="#7a8c85" stroke-width="0.8">
-              <rect x="20" y="22" width="200" height="32" rx="1.5" />
+              <rect x="22" y="22" width="38" height="100" rx="1.5" />
             </g>
             <g stroke="#5d6f68" stroke-width="0.7" fill="#fff">
-              <!-- Sink -->
-              <rect x="30" y="28" width="26" height="20" />
-              <line x1="30" y1="28" x2="56" y2="48" />
-              <!-- Stove -->
-              <rect x="70" y="28" width="32" height="22" />
-              <circle cx="78" cy="39" r="3" fill="none" />
-              <circle cx="94" cy="39" r="3" fill="none" />
-              <!-- Microwave -->
-              <rect x="116" y="28" width="34" height="22" />
-              <!-- Fridge -->
-              <rect x="178" y="22" width="40" height="32" />
-              <line x1="178" y1="36" x2="218" y2="36" />
+              <!-- Lednice (top) -->
+              <rect x="26" y="24" width="30" height="22" />
+              <line x1="26" y1="36" x2="56" y2="36" />
+              <!-- Varná deska -->
+              <rect x="26" y="50" width="30" height="20" />
+              <circle cx="34" cy="60" r="2.5" fill="none" />
+              <circle cx="48" cy="60" r="2.5" fill="none" />
+              <!-- Dřez -->
+              <rect x="26" y="74" width="30" height="22" />
+              <line x1="26" y1="74" x2="56" y2="96" />
+              <!-- Mikrovlnná trouba -->
+              <rect x="26" y="100" width="30" height="20" />
             </g>
 
-            <!-- Bathroom fixtures -->
-            <g stroke="#5d6f68" stroke-width="0.8" fill="#fff">
-              <!-- Shower -->
-              <rect x="232" y="22" width="32" height="34" />
-              <line x1="232" y1="22" x2="264" y2="56" />
-              <line x1="264" y1="22" x2="232" y2="56" />
-              <!-- WC -->
-              <rect x="272" y="24" width="22" height="28" rx="3" />
-              <ellipse cx="283" cy="38" rx="7" ry="9" fill="#faf8f3" />
-              <!-- Sink -->
-              <rect x="305" y="22" width="32" height="20" rx="2" />
-              <ellipse cx="321" cy="32" rx="11" ry="6" fill="#faf8f3" />
-            </g>
-
-            <!-- Wardrobe in entry -->
+            <!-- Šatní skříň + niche (entry zone, right side of kitchen) -->
             <g fill="#ede6cf" stroke="#7a8c85" stroke-width="0.8">
-              <rect x="20" y="60" width="32" height="36" />
+              <rect x="68" y="22" width="50" height="38" />
+              <line x1="68" y1="40" x2="118" y2="40" />
+              <line x1="93" y1="22" x2="93" y2="60" />
             </g>
-
-            <!-- Bed (main room, against bottom wall) -->
-            <g stroke="#5d6f68" stroke-width="0.8" fill="#fff">
-              <rect x="195" y="225" width="135" height="68" rx="3" />
-              <!-- Pillows -->
-              <rect x="200" y="232" width="58" height="18" fill="#ede6cf" stroke-width="0.6" />
-              <rect x="265" y="232" width="58" height="18" fill="#ede6cf" stroke-width="0.6" />
-              <!-- Blanket fold -->
-              <line x1="200" y1="270" x2="325" y2="270" />
-            </g>
-
-            <!-- Wardrobe (main room left) -->
-            <g fill="#ede6cf" stroke="#7a8c85" stroke-width="0.8">
-              <rect x="20" y="115" width="40" height="80" />
-              <line x1="20" y1="155" x2="60" y2="155" stroke="#7a8c85" />
-            </g>
-
-            <!-- Niche shelving -->
+            <!-- Niche -->
             <g fill="#fff" stroke="#7a8c85" stroke-width="0.7">
-              <rect x="20" y="210" width="40" height="55" />
-              <line x1="20" y1="225" x2="60" y2="225" />
-              <line x1="20" y1="245" x2="60" y2="245" />
+              <rect x="68" y="64" width="50" height="55" />
+              <line x1="68" y1="80" x2="118" y2="80" />
+              <line x1="68" y1="100" x2="118" y2="100" />
             </g>
 
-            <!-- Dining table + chairs -->
+            <!-- BED (main room, against right outer wall, just below bathroom) -->
             <g stroke="#5d6f68" stroke-width="0.8" fill="#fff">
-              <circle cx="125" cy="170" r="22" />
-              <circle cx="93" cy="170" r="8" />
-              <circle cx="157" cy="170" r="8" />
+              <rect x="200" y="140" width="100" height="80" rx="3" />
+              <!-- Two pillows along top edge -->
+              <rect x="206" y="146" width="42" height="22" fill="#ede6cf" stroke-width="0.6" />
+              <rect x="252" y="146" width="42" height="22" fill="#ede6cf" stroke-width="0.6" />
+              <!-- Blanket fold -->
+              <line x1="206" y1="195" x2="294" y2="195" />
             </g>
 
-            <!-- Coffee table + armchairs -->
+            <!-- Dining table + 4 chairs (center of main room) -->
             <g stroke="#5d6f68" stroke-width="0.8" fill="#fff">
-              <rect x="105" y="225" width="40" height="28" rx="2" />
-              <rect x="80" y="245" width="20" height="20" rx="3" />
-              <rect x="150" y="245" width="20" height="20" rx="3" />
+              <circle cx="105" cy="200" r="22" />
+              <!-- 4 chairs around -->
+              <circle cx="75" cy="200" r="9" />
+              <circle cx="135" cy="200" r="9" />
+              <circle cx="105" cy="170" r="9" />
+              <circle cx="105" cy="230" r="9" />
             </g>
 
-            <!-- Balcony chairs and table -->
+            <!-- Coffee table + 2 armchairs (lower part of main room, near balcony) -->
             <g stroke="#5d6f68" stroke-width="0.8" fill="#fff">
-              <rect x="100" y="335" width="50" height="28" rx="2" />
-              <rect x="170" y="340" width="22" height="22" rx="3" />
-              <rect x="210" y="340" width="22" height="22" rx="3" />
+              <!-- Coffee table -->
+              <rect x="120" y="278" width="50" height="32" rx="2" />
+              <!-- Armchair left -->
+              <rect x="60" y="270" width="38" height="38" rx="6" />
+              <line x1="60" y1="278" x2="98" y2="278" />
+              <!-- Armchair right -->
+              <rect x="195" y="270" width="38" height="38" rx="6" />
+              <line x1="195" y1="278" x2="233" y2="278" />
             </g>
 
-            <!-- Number badges -->
+            <!-- BALCONY (bottom) -->
+            <!-- Privacy screen (zástěna) on right side -->
+            <line x1="305" y1="370" x2="265" y2="370" stroke="#7a8c85" stroke-width="2" stroke-dasharray="3 3" />
+            <line x1="15" y1="370" x2="55" y2="370" stroke="#7a8c85" stroke-width="2" stroke-dasharray="3 3" />
+
+            <!-- Balcony stolek + 2 židle -->
+            <g stroke="#5d6f68" stroke-width="0.8" fill="#fff">
+              <!-- Stolek -->
+              <circle cx="160" cy="400" r="14" />
+              <!-- 2 židle -->
+              <rect x="115" y="390" width="22" height="22" rx="3" />
+              <rect x="183" y="390" width="22" height="22" rx="3" />
+            </g>
+
+            <!-- Number badges (matching rooms list) -->
             <g font-family="Inter, sans-serif" font-size="11" font-weight="700">
-              <circle cx="170" cy="78" r="10" fill="#c9a96e" />
-              <text x="166.5" y="82" fill="#fff">1</text>
-              <circle cx="160" cy="265" r="10" fill="#c9a96e" />
-              <text x="156.5" y="269" fill="#fff">2</text>
-              <circle cx="262" cy="195" r="10" fill="#c9a96e" />
-              <text x="258.5" y="199" fill="#fff">3</text>
-              <circle cx="285" cy="78" r="10" fill="#c9a96e" />
-              <text x="281.5" y="82" fill="#fff">4</text>
-              <circle cx="290" cy="345" r="10" fill="#c9a96e" />
-              <text x="286.5" y="349" fill="#fff">5</text>
+              <!-- 1 = Předsíň (entry zone, near entry door) -->
+              <circle cx="155" cy="92" r="11" fill="#c9a96e" />
+              <text x="151.5" y="96" fill="#fff">1</text>
+              <!-- 2 = Kuchyňský kout + obývací pokoj (center living area) -->
+              <circle cx="105" cy="280" r="11" fill="#c9a96e" />
+              <text x="101.5" y="284" fill="#fff">2</text>
+              <!-- 3 = Ložnice (bed area) -->
+              <circle cx="250" cy="240" r="11" fill="#c9a96e" />
+              <text x="246.5" y="244" fill="#fff">3</text>
+              <!-- 4 = Koupelna + WC -->
+              <circle cx="225" cy="55" r="11" fill="#c9a96e" />
+              <text x="221.5" y="59" fill="#fff">4</text>
+              <!-- 5 = Balkon -->
+              <circle cx="245" cy="400" r="11" fill="#c9a96e" />
+              <text x="241.5" y="404" fill="#fff">5</text>
             </g>
           </svg>
         </div>
