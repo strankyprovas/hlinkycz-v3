@@ -441,6 +441,67 @@
           font-size: 1.4rem;
         }
       }
+
+      /* ===== PLAN LIGHTBOX ===== */
+      .card-images .plan-img {
+        cursor: zoom-in;
+        transition: opacity 0.2s var(--ease, ease);
+      }
+      .card-images .plan-img:hover {
+        opacity: 0.85;
+      }
+      .plan-modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.92);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 24px;
+        cursor: zoom-out;
+      }
+      .plan-modal.open {
+        display: flex;
+        animation: planFadeIn 0.2s ease;
+      }
+      @keyframes planFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .plan-modal img {
+        max-width: 95vw;
+        max-height: 95vh;
+        width: auto;
+        height: auto;
+        cursor: default;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+      .plan-modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        background: transparent;
+        color: white;
+        font-size: 1.2rem;
+        line-height: 1;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, border-color 0.2s;
+      }
+      .plan-modal-close:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: white;
+      }
+      @media print {
+        .plan-modal { display: none !important; }
+      }
     </style>
   </head>
   <body>
@@ -662,5 +723,42 @@
         Stáhnout jako PDF
       </button>
     </div>
+
+    <!-- Plan lightbox modal -->
+    <div class="plan-modal" id="plan-modal" role="dialog" aria-hidden="true">
+      <button class="plan-modal-close" aria-label="Zavřít">✕</button>
+      <img src="" alt="" />
+    </div>
+
+    <script>
+      (function () {
+        const planImg = document.querySelector('.card-images .plan-img');
+        const modal = document.getElementById('plan-modal');
+        const modalImg = modal.querySelector('img');
+        const closeBtn = modal.querySelector('.plan-modal-close');
+
+        function open() {
+          modalImg.src = planImg.src;
+          modalImg.alt = planImg.alt;
+          modal.classList.add('open');
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+        function close() {
+          modal.classList.remove('open');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+
+        planImg.addEventListener('click', open);
+        closeBtn.addEventListener('click', close);
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) close();
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && modal.classList.contains('open')) close();
+        });
+      })();
+    </script>
   </body>
 </html>
