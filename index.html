@@ -2188,6 +2188,39 @@
         background: var(--gold);
         color: var(--dark);
       }
+      .apt-units {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-top: 14px;
+      }
+      .apt-unit-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 14px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--dark);
+        background: transparent;
+        border: 1px solid var(--cream-dark);
+        border-radius: 2px;
+        transition: border-color 0.2s, background 0.2s;
+        text-decoration: none;
+      }
+      .apt-unit-link:hover {
+        border-color: var(--gold);
+        background: rgba(201, 169, 110, 0.05);
+      }
+      .apt-unit-id {
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+      .apt-unit-size {
+        font-size: 0.75rem;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+      }
       .apt-download svg {
         width: 14px;
         height: 14px;
@@ -2638,10 +2671,23 @@
             </div>
             <p class="apt-desc">
               Reprezentativní obchodní prostory v přízemí moderní novostavby –
-              ideální pro ordinaci, kancelář nebo kavárnu.
+              ideální pro kavárnu, salon, cvičební studio nebo obchod.
             </p>
             <div class="apt-price">Cena na vyžádání</div>
-            <div class="apt-download-placeholder" aria-hidden="true"></div>
+            <div class="apt-units">
+              <a href="byty/obchodni-1a.html" class="apt-unit-link">
+                <span class="apt-unit-id">1A</span>
+                <span class="apt-unit-size">53,5 m²</span>
+              </a>
+              <a href="byty/obchodni-1b.html" class="apt-unit-link">
+                <span class="apt-unit-id">1B</span>
+                <span class="apt-unit-size">206,8 m²</span>
+              </a>
+              <a href="byty/obchodni-1c.html" class="apt-unit-link">
+                <span class="apt-unit-id">1C</span>
+                <span class="apt-unit-size">71,7 m²</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
