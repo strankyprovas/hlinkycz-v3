@@ -249,7 +249,7 @@
       <div class="wrap head-inner">
         <a class="logo" href="../">Hlinky<span>.</span></a>
         <nav class="head-nav" aria-label="Hlavní navigace">
-          <a href="../#about">O projektu</a>
+          <a href="../#why-us">O projektu</a>
           <a href="./">Byty a prostory</a>
           <a href="../#gallery">Galerie</a>
           <a href="../#timeline">Harmonogram</a>
@@ -427,7 +427,7 @@
               `<td class="num">${formatMesic(j.nastehovani)}</td>` +
               `<td class="num">${j.vystehovani ? formatMesic(j.vystehovani) : "—"}</td>` +
               `<td><span class="stav ${tridaStavu}">${j.stav}</span></td>` +
-              `<td><a class="detail" href="${j.karta}">Karta jednotky</a>` +
+              `<td><a class="detail" href="${j.karta}">${j.karta.includes("vzor") ? "Vzorová karta" : "Karta jednotky"}</a>` +
               (j.pdf ? ` <a class="detail pdf" href="${j.pdf}" download>PDF</a>` : "") + `</td>`;
             tbody.appendChild(tr);
           });
