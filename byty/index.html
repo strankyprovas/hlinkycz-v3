@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MTTJ1G62Z4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MTTJ1G62Z4');
+    </script>
+
+    <title>Byty a prostory – Hlinky.cz</title>
+    <meta name="description" content="Přehled bytů a obchodních prostor v rezidenci Hlinky 74 a Hlinky 80. Filtrujte podle velikosti, termínu nastěhování a dostupnosti." />
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #f7f3ee;
+        --cream-dark: #ede8e0;
+        --dark: #1a2720;
+        --dark-mid: #263830;
+        --gold: #c9a96e;
+        --gold-light: #e8d5ae;
+        --text: #2c3a34;
+        --muted: #7a8c85;
+        --white: #ffffff;
+        --border: #e8e4dc;
+        --volny: #2f7a5a;
+        --volny-bg: #e6f2ec;
+        --rezerv: #a8791f;
+        --rezerv-bg: #f8efdb;
+        --obsazen: #8c8c8c;
+        --obsazen-bg: #eeeeee;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "Inter", system-ui, sans-serif;
+        --max: 1240px;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: var(--sans);
+        color: var(--text);
+        background: var(--cream);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: inherit; }
+      .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+      /* ---------- header ---------- */
+      header {
+        background: var(--dark);
+        color: var(--cream);
+        padding: 18px 0;
+        position: sticky;
+        top: 0;
+        z-index: 40;
+      }
+      .head-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+      .logo { font-family: var(--serif); font-size: 24px; letter-spacing: .04em; text-decoration: none; }
+      .logo span { color: var(--gold); }
+      .head-nav { display: flex; gap: 26px; font-size: 14px; }
+      .head-nav a { text-decoration: none; opacity: .85; transition: opacity .2s; }
+      .head-nav a:hover, .head-nav a:focus-visible { opacity: 1; color: var(--gold-light); }
+
+      /* ---------- hero ---------- */
+      .hero { padding: 56px 0 30px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+      .crumbs a { text-decoration: none; border-bottom: 1px solid transparent; }
+      .crumbs a:hover { border-bottom-color: var(--muted); }
+      h1 {
+        font-family: var(--serif);
+        font-size: clamp(38px, 6vw, 62px);
+        font-weight: 600;
+        line-height: 1.05;
+        letter-spacing: -.01em;
+        color: var(--dark);
+      }
+      .hero p { max-width: 60ch; margin-top: 14px; color: var(--muted); font-size: 16.5px; }
+
+      /* ---------- rozcestnik ---------- */
+      .groups {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 14px;
+        margin: 34px 0 0;
+      }
+      .group {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 3px;
+        padding: 22px 22px 20px;
+        text-align: left;
+        cursor: pointer;
+        font: inherit;
+        color: inherit;
+        transition: border-color .2s, transform .2s;
+      }
+      .group:hover { border-color: var(--gold); transform: translateY(-2px); }
+      .group[aria-pressed="true"] { border-color: var(--gold); background: var(--white); box-shadow: inset 0 0 0 1px var(--gold); }
+      .group .n { font-family: var(--serif); font-size: 40px; line-height: 1; color: var(--dark); }
+      .group .lbl { margin-top: 8px; font-size: 15px; font-weight: 500; }
+      .group .sub { font-size: 13px; color: var(--muted); }
+
+      /* ---------- filtr ---------- */
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px 22px;
+        align-items: flex-end;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 3px;
+        padding: 20px 22px;
+        margin-top: 16px;
+      }
+      .field { display: flex; flex-direction: column; gap: 6px; min-width: 160px; }
+      .field label {
+        font-size: 11px;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .field select {
+        font: inherit;
+        font-size: 15px;
+        padding: 9px 12px;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        background: var(--white);
+        color: var(--text);
+        min-width: 160px;
+      }
+      .field select:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+      .reset {
+        font: inherit;
+        font-size: 14px;
+        background: none;
+        border: none;
+        color: var(--muted);
+        cursor: pointer;
+        padding: 10px 0;
+        border-bottom: 1px solid transparent;
+      }
+      .reset:hover { color: var(--text); border-bottom-color: var(--muted); }
+      .count { margin-left: auto; font-size: 14px; color: var(--muted); padding-bottom: 10px; }
+      .count b { color: var(--dark); font-weight: 600; }
+
+      /* ---------- tabulka ---------- */
+      .table-wrap { overflow-x: auto; margin: 22px 0 60px; }
+      table { width: 100%; border-collapse: collapse; background: var(--white); font-size: 15px; }
+      thead th {
+        text-align: left;
+        font-size: 11px;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 600;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border);
+        white-space: nowrap;
+      }
+      tbody td { padding: 14px 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+      tbody tr:hover { background: var(--cream); }
+      .unit { font-weight: 600; color: var(--dark); }
+      .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+      .stav {
+        display: inline-block;
+        font-size: 12.5px;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 2px;
+        white-space: nowrap;
+      }
+      .stav.volny { background: var(--volny-bg); color: var(--volny); }
+      .stav.rezervovany { background: var(--rezerv-bg); color: var(--rezerv); }
+      .stav.obsazeny { background: var(--obsazen-bg); color: var(--obsazen); }
+      .detail {
+        font-size: 14px;
+        text-decoration: none;
+        color: var(--dark);
+        border-bottom: 1px solid var(--gold);
+        white-space: nowrap;
+      }
+      .detail:hover { color: var(--gold); }
+      .empty { padding: 40px 16px; text-align: center; color: var(--muted); }
+
+      /* ---------- poznamka ---------- */
+      .notice {
+        background: var(--cream-dark);
+        border-left: 3px solid var(--gold);
+        padding: 16px 20px;
+        margin-top: 26px;
+        font-size: 14.5px;
+        color: var(--text);
+      }
+      .notice b { color: var(--dark); }
+
+      footer {
+        background: var(--dark);
+        color: var(--cream);
+        padding: 34px 0;
+        font-size: 14px;
+      }
+      footer a { color: var(--gold-light); }
+
+      @media (max-width: 640px) {
+        .head-nav { display: none; }
+        .count { margin-left: 0; width: 100%; }
+        .field, .field select { min-width: 100%; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="wrap head-inner">
+        <a class="logo" href="../">Hlinky<span>.</span></a>
+        <nav class="head-nav" aria-label="Hlavní navigace">
+          <a href="../#about">O projektu</a>
+          <a href="./">Byty a prostory</a>
+          <a href="../#gallery">Galerie</a>
+          <a href="../#timeline">Harmonogram</a>
+          <a href="../#contact">Kontakt</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap">
+          <p class="crumbs"><a href="../">Úvod</a> &nbsp;/&nbsp; Byty a prostory</p>
+          <h1>Byty a prostory</h1>
+          <p>
+            Kompletní přehled jednotek v obou domech. Vyberte velikost, termín nastěhování
+            nebo si nechte zobrazit jen to, co je právě volné — a z každého řádku se
+            prokliknete na kartu jednotky s půdorysem.
+          </p>
+
+          <div class="groups" id="groups" role="group" aria-label="Rychlý výběr podle dispozice"></div>
+
+          <div class="filters">
+            <div class="field">
+              <label for="f-disp">Velikost bytu</label>
+              <select id="f-disp"><option value="">Všechny velikosti</option></select>
+            </div>
+            <div class="field">
+              <label for="f-dum">Dům</label>
+              <select id="f-dum"><option value="">Oba domy</option></select>
+            </div>
+            <div class="field">
+              <label for="f-nast">Nastěhování od</label>
+              <select id="f-nast"><option value="">Kdykoliv</option></select>
+            </div>
+            <div class="field">
+              <label for="f-stav">Dostupnost</label>
+              <select id="f-stav">
+                <option value="">Vše</option>
+                <option value="volný">Jen volné</option>
+                <option value="rezervovaný">Rezervované</option>
+                <option value="obsazený">Obsazené</option>
+              </select>
+            </div>
+            <button class="reset" type="button" id="reset">Zrušit filtry</button>
+            <p class="count" id="count"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Jednotka</th>
+                <th scope="col">Dům</th>
+                <th scope="col">Patro</th>
+                <th scope="col">Dispozice</th>
+                <th scope="col">Plocha</th>
+                <th scope="col">Cena / měsíc</th>
+                <th scope="col">Nastěhování</th>
+                <th scope="col">Stav</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+          <p class="empty" id="empty" hidden>
+            Tomuto výběru neodpovídá žádná jednotka. Zkuste povolit jinou velikost nebo termín.
+          </p>
+        </div>
+
+        <p class="notice" id="notice"></p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        Rezidence Hlinky · Novira Estate SE ·
+        <a href="../#contact">Kontakt na prodej</a>
+      </div>
+    </footer>
+
+    <script>
+      const MESICE = ["ledna","února","března","dubna","května","června",
+                      "července","srpna","září","října","listopadu","prosince"];
+
+      const state = { disp: "", dum: "", nast: "", stav: "" };
+      let jednotky = [];
+
+      const $ = (id) => document.getElementById(id);
+
+      function formatMesic(iso) {
+        if (!iso) return "—";
+        const [r, m] = iso.split("-");
+        return `${MESICE[Number(m) - 1]} ${r}`;
+      }
+
+      function formatCena(c) {
+        return c ? c.toLocaleString("cs-CZ") + " Kč" : "na vyžádání";
+      }
+
+      function naplnSelect(el, hodnoty, popis = (v) => v) {
+        hodnoty.forEach((v) => {
+          const o = document.createElement("option");
+          o.value = v;
+          o.textContent = popis(v);
+          el.appendChild(o);
+        });
+      }
+
+      function poradiDispozic(a, b) {
+        const rank = (d) => {
+          if (d.startsWith("obchodní")) return 99;
+          const n = parseFloat(d);
+          return isNaN(n) ? 50 : n + (d.includes("+1") ? 0.5 : 0);
+        };
+        return rank(a) - rank(b);
+      }
+
+      function vykresliSkupiny() {
+        const skupiny = [...new Set(jednotky.map((j) => j.dispozice))].sort(poradiDispozic);
+        const box = $("groups");
+        box.innerHTML = "";
+        skupiny.forEach((d) => {
+          const vse = jednotky.filter((j) => j.dispozice === d);
+          const volne = vse.filter((j) => j.stav === "volný").length;
+          const btn = document.createElement("button");
+          btn.className = "group";
+          btn.type = "button";
+          btn.setAttribute("aria-pressed", String(state.disp === d));
+          btn.innerHTML =
+            `<span class="n">${volne}</span>` +
+            `<span class="lbl">${d === "obchodní prostor" ? "Obchodní prostory" : d}</span>` +
+            `<span class="sub">volných z ${vse.length}</span>`;
+          btn.addEventListener("click", () => {
+            state.disp = state.disp === d ? "" : d;
+            $("f-disp").value = state.disp;
+            prekresli();
+          });
+          box.appendChild(btn);
+        });
+      }
+
+      function prekresli() {
+        const vybrane = jednotky.filter((j) =>
+          (!state.disp || j.dispozice === state.disp) &&
+          (!state.dum || j.dum === state.dum) &&
+          (!state.nast || (j.nastehovani && j.nastehovani <= state.nast)) &&
+          (!state.stav || j.stav === state.stav)
+        );
+
+        const tbody = $("rows");
+        tbody.innerHTML = "";
+        vybrane
+          .sort((a, b) => a.dum.localeCompare(b.dum) || a.patro - b.patro ||
+                          a.oznaceni.localeCompare(b.oznaceni))
+          .forEach((j) => {
+            const tr = document.createElement("tr");
+            const tridaStavu = { "volný": "volny", "rezervovaný": "rezervovany", "obsazený": "obsazeny" }[j.stav];
+            tr.innerHTML =
+              `<td class="unit">${j.oznaceni}${j.poznamka ? ` <span style="font-weight:400;color:var(--muted)">· ${j.poznamka}</span>` : ""}</td>` +
+              `<td>${j.dum}</td>` +
+              `<td class="num">${j.patro}. NP</td>` +
+              `<td>${j.dispozice}</td>` +
+              `<td class="num">${j.plocha.toLocaleString("cs-CZ")} m²</td>` +
+              `<td class="num">${formatCena(j.cena)}</td>` +
+              `<td class="num">${formatMesic(j.nastehovani)}</td>` +
+              `<td><span class="stav ${tridaStavu}">${j.stav}</span></td>` +
+              `<td><a class="detail" href="${j.karta}">Karta jednotky</a></td>`;
+            tbody.appendChild(tr);
+          });
+
+        $("empty").hidden = vybrane.length > 0;
+        const volnych = vybrane.filter((j) => j.stav === "volný").length;
+        $("count").innerHTML = `Zobrazeno <b>${vybrane.length}</b> jednotek, z toho <b>${volnych}</b> volných`;
+
+        document.querySelectorAll(".group").forEach((btn) => {
+          const lbl = btn.querySelector(".lbl").textContent;
+          const d = lbl === "Obchodní prostory" ? "obchodní prostor" : lbl;
+          btn.setAttribute("aria-pressed", String(state.disp === d));
+        });
+      }
+
+      fetch("data/jednotky.json")
+        .then((r) => r.json())
+        .then((data) => {
+          jednotky = data.jednotky;
+
+          naplnSelect($("f-disp"),
+            [...new Set(jednotky.map((j) => j.dispozice))].sort(poradiDispozic),
+            (d) => (d === "obchodní prostor" ? "Obchodní prostory" : d));
+          naplnSelect($("f-dum"), [...new Set(jednotky.map((j) => j.dum))].sort());
+          naplnSelect($("f-nast"),
+            [...new Set(jednotky.map((j) => j.nastehovani).filter(Boolean))].sort(),
+            (m) => "od " + formatMesic(m));
+
+          $("f-disp").addEventListener("change", (e) => { state.disp = e.target.value; prekresli(); });
+          $("f-dum").addEventListener("change", (e) => { state.dum = e.target.value; prekresli(); });
+          $("f-nast").addEventListener("change", (e) => { state.nast = e.target.value; prekresli(); });
+          $("f-stav").addEventListener("change", (e) => { state.stav = e.target.value; prekresli(); });
+          $("reset").addEventListener("click", () => {
+            Object.keys(state).forEach((k) => (state[k] = ""));
+            ["f-disp", "f-dum", "f-nast", "f-stav"].forEach((id) => ($(id).value = ""));
+            prekresli();
+          });
+
+          $("notice").innerHTML =
+            `<b>Pracovní verze.</b> Čísla jednotek a rozdělení pater odpovídají podkladům ` +
+            `Novira Estate. Dispozice, plochy, ceny a dostupnost jsou zatím ukázkové — ` +
+            `jakmile je doplníte do sdílené tabulky, přehled se aktualizuje sám. ` +
+            `Naposledy načteno: ${data.aktualizovano}.`;
+
+          vykresliSkupiny();
+          prekresli();
+        })
+        .catch(() => {
+          $("empty").hidden = false;
+          $("empty").textContent = "Přehled jednotek se nepodařilo načíst. Zkuste stránku obnovit.";
+        });
+    </script>
+  </body>
+</html>
