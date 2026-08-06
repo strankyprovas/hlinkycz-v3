@@ -213,6 +213,8 @@
         white-space: nowrap;
       }
       .detail:hover { color: var(--gold); }
+      .detail.pdf { margin-left: 10px; font-size: 13px; color: var(--muted); border-bottom-color: var(--border); }
+      .detail.pdf:hover { color: var(--gold); }
       .empty { padding: 40px 16px; text-align: center; color: var(--muted); }
 
       /* ---------- poznamka ---------- */
@@ -283,6 +285,10 @@
               <select id="f-nast"><option value="">Kdykoliv</option></select>
             </div>
             <div class="field">
+              <label for="f-vyst">Vystěhování do</label>
+              <select id="f-vyst"><option value="">Kdykoliv</option></select>
+            </div>
+            <div class="field">
               <label for="f-stav">Dostupnost</label>
               <select id="f-stav">
                 <option value="">Vše</option>
@@ -309,6 +315,7 @@
                 <th scope="col">Plocha</th>
                 <th scope="col">Cena / měsíc</th>
                 <th scope="col">Nastěhování</th>
+                <th scope="col">Vystěhování</th>
                 <th scope="col">Stav</th>
                 <th scope="col"></th>
               </tr>
@@ -335,7 +342,7 @@
       const MESICE = ["ledna","února","března","dubna","května","června",
                       "července","srpna","září","října","listopadu","prosince"];
 
-      const state = { disp: "", dum: "", nast: "", stav: "" };
+      const state = { disp: "", dum: "", nast: "", vyst: "", stav: "" };
       let jednotky = [];
 
       const $ = (id) => document.getElementById(id);
@@ -398,6 +405,7 @@
           (!state.disp || j.dispozice === state.disp) &&
           (!state.dum || j.dum === state.dum) &&
           (!state.nast || (j.nastehovani && j.nastehovani <= state.nast)) &&
+          (!state.vyst || (j.stav === "volný" || (j.vystehovani && j.vystehovani <= state.vyst))) &&
           (!state.stav || j.stav === state.stav)
         );
 
@@ -417,8 +425,10 @@
               `<td class="num">${j.plocha.toLocaleString("cs-CZ")} m²</td>` +
               `<td class="num">${formatCena(j.cena)}</td>` +
               `<td class="num">${formatMesic(j.nastehovani)}</td>` +
+              `<td class="num">${j.vystehovani ? formatMesic(j.vystehovani) : "—"}</td>` +
               `<td><span class="stav ${tridaStavu}">${j.stav}</span></td>` +
-              `<td><a class="detail" href="${j.karta}">Karta jednotky</a></td>`;
+              `<td><a class="detail" href="${j.karta}">Karta jednotky</a>` +
+              (j.pdf ? ` <a class="detail pdf" href="${j.pdf}" download>PDF</a>` : "") + `</td>`;
             tbody.appendChild(tr);
           });
 
@@ -445,14 +455,18 @@
           naplnSelect($("f-nast"),
             [...new Set(jednotky.map((j) => j.nastehovani).filter(Boolean))].sort(),
             (m) => "od " + formatMesic(m));
+          naplnSelect($("f-vyst"),
+            [...new Set(jednotky.map((j) => j.vystehovani).filter(Boolean))].sort(),
+            (m) => "do " + formatMesic(m));
 
           $("f-disp").addEventListener("change", (e) => { state.disp = e.target.value; prekresli(); });
           $("f-dum").addEventListener("change", (e) => { state.dum = e.target.value; prekresli(); });
           $("f-nast").addEventListener("change", (e) => { state.nast = e.target.value; prekresli(); });
+          $("f-vyst").addEventListener("change", (e) => { state.vyst = e.target.value; prekresli(); });
           $("f-stav").addEventListener("change", (e) => { state.stav = e.target.value; prekresli(); });
           $("reset").addEventListener("click", () => {
             Object.keys(state).forEach((k) => (state[k] = ""));
-            ["f-disp", "f-dum", "f-nast", "f-stav"].forEach((id) => ($(id).value = ""));
+            ["f-disp", "f-dum", "f-nast", "f-vyst", "f-stav"].forEach((id) => ($(id).value = ""));
             prekresli();
           });
 
