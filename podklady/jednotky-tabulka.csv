@@ -1,72 +1,101 @@
 ﻿dum;oznaceni;patro;dispozice;plocha_m2;cena_kc_mesic;stav;nastehovani;vystehovani;pdf_odkaz;poznamka
-Hlinky 74;1C;1;obchodní prostor;71.7;23371;volný;2027-08;;;14 300 obch. jednotka + 9 071 sklad
-Hlinky 74;2A1;2;;;;;;;;
-Hlinky 74;2A2;2;;;;;;;;
-Hlinky 74;2B1;2;;;;;;;;
-Hlinky 74;2B2;2;;;;;;;;
-Hlinky 74;3A1;3;;;;;;;;
-Hlinky 74;3A2;3;;;;;;;;
-Hlinky 74;3B1;3;;;;;;;;
-Hlinky 74;3B2;3;;;;;;;;
-Hlinky 74;4A1;4;;;;;;;;
-Hlinky 74;4A2;4;;;;;;;;
-Hlinky 74;4B1;4;;;;;;;;
-Hlinky 74;4B2;4;;;;;;;;
-Hlinky 74;5A1;5;;;;;;;;
-Hlinky 74;5A2;5;;;;;;;;
-Hlinky 74;5B1;5;;;;;;;;
-Hlinky 74;5B2;5;;;;;;;;
-Hlinky 74;6A1;6;;;;;;;;
-Hlinky 74;6A2;6;;;;;;;;
-Hlinky 74;6B1;6;;;;;;;;
-Hlinky 74;6B2;6;;;;;;;;
-Hlinky 74;7A1;7;;;;;;;;
-Hlinky 74;7A2;7;;;;;;;;
-Hlinky 74;7B1;7;;;;;;;;
-Hlinky 74;7B2;7;;;;;;;;
-Hlinky 74;8A1;8;;;;;;;;
-Hlinky 74;8B1;8;;;;;;;;
-Hlinky 80;1A;1;obchodní prostor;53.5;20330;volný;2027-08;;;
-Hlinky 80;1B;1;obchodní prostor;206.8;78584;volný;2027-08;;;regulovatelná příčka
-Hlinky 80;2A;2;;;;;;;;
-Hlinky 80;2B;2;;;;;;;;
-Hlinky 80;2C;2;;;;;;;;
-Hlinky 80;2D;2;;;;;;;;
-Hlinky 80;2E;2;;;;;;;;
-Hlinky 80;2F;2;;;;;;;;
-Hlinky 80;2G;2;;;;;;;;
-Hlinky 80;3A;3;;;;;;;;
-Hlinky 80;3B;3;;;;;;;;
-Hlinky 80;3C;3;;;;;;;;
-Hlinky 80;3D;3;;;;;;;;
-Hlinky 80;3E;3;;;;;;;;
-Hlinky 80;3F;3;;;;;;;;
-Hlinky 80;3G;3;;;;;;;;
-Hlinky 80;4A;4;;;;;;;;
-Hlinky 80;4B;4;;;;;;;;
-Hlinky 80;4C;4;;;;;;;;
-Hlinky 80;4D;4;;;;;;;;
-Hlinky 80;4E;4;;;;;;;;
-Hlinky 80;4F;4;;;;;;;;
-Hlinky 80;4G;4;;;;;;;;
-Hlinky 80;5A;5;;;;;;;;
-Hlinky 80;5B;5;;;;;;;;
-Hlinky 80;5C;5;;;;;;;;
-Hlinky 80;5D;5;;;;;;;;
-Hlinky 80;5E;5;;;;;;;;
-Hlinky 80;5F;5;;;;;;;;
-Hlinky 80;5G;5;;;;;;;;
-Hlinky 80;6A;6;;;;;;;;
-Hlinky 80;6B;6;;;;;;;;
-Hlinky 80;6C;6;2+1;;;;;;;
-Hlinky 80;6D;6;;;;;;;;
-Hlinky 80;6E;6;;;;;;;;
-Hlinky 80;6F;6;;;;;;;;
-Hlinky 80;6G;6;;;;;;;;
-Hlinky 80;7A;7;;;;;;;;
-Hlinky 80;7B;7;;;;;;;;
-Hlinky 80;7C;7;2+1;;;;;;;
-Hlinky 80;7D;7;;;;;;;;
-Hlinky 80;7E;7;;;;;;;;
-Hlinky 80;7F;7;;;;;;;;s terasou
-Hlinky 80;7G;7;;;;;;;;s terasou
+Hlinky 74;1C;1;obchodní prostor;71,7;23371;;;;;31,1 m² prodejna + 34,1 m² zázemí/sklad
+Hlinky 74;2B1;2;1+kk;25,8;20800;;;;;
+Hlinky 74;2B2;2;1+kk;24,8;20000;;;;;
+Hlinky 74;2A1;2;1+kk;25,8;21900;;;;;terasa 6,3 m²
+Hlinky 74;2A2;2;1+kk;26,6;22500;;;;;terasa 6,1 m²
+Hlinky 74;3B1;3;1+kk;26,2;21100;;;;;
+Hlinky 74;3B2;3;1+kk;24,7;19900;;;;;
+Hlinky 74;3A1;3;1+kk;25,8;21600;;;;;terasa 4,6 m²
+Hlinky 74;3A2;3;1+kk;26,6;22200;;;;;terasa 4,6 m²
+Hlinky 74;4B1;4;1+kk;26,2;21100;;;;;
+Hlinky 74;4B2;4;1+kk;24,7;19900;;;;;
+Hlinky 74;4A1;4;1+kk;25,8;21600;;;;;terasa 4,6 m²
+Hlinky 74;4A2;4;1+kk;26,6;22200;;;;;terasa 4,6 m²
+Hlinky 74;5B1;5;1+kk;26,2;21100;;;;;
+Hlinky 74;5B2;5;1+kk;24,7;19900;;;;;
+Hlinky 74;5A1;5;1+kk;25,8;21600;;;;;terasa 4,6 m²
+Hlinky 74;5A2;5;1+kk;26,6;22200;;;;;terasa 4,6 m²
+Hlinky 74;6B1;6;1+kk;26,2;21100;;;;;
+Hlinky 74;6B2;6;1+kk;24,7;19900;;;;;
+Hlinky 74;6A1;6;1+kk;25,8;21600;;;;;terasa 4,6 m²
+Hlinky 74;6A2;6;1+kk;26,6;22200;;;;;terasa 4,6 m²
+Hlinky 74;7B1;7;1+kk;26,2;21100;;;;;
+Hlinky 74;7B2;7;1+kk;24,7;19900;;;;;
+Hlinky 74;7A1;7;1+kk;25,8;21600;;;;;terasa 4,6 m²
+Hlinky 74;7A2;7;1+kk;26,6;22200;;;;;terasa 4,6 m²
+Hlinky 74;8B1;8;2+kk;46,2;28500;;;;;terasa 10,2 m²
+Hlinky 74;8A1;8;2+kk;47,2;29400;;;;;terasa 11,0 m²
+Hlinky 80;1A;1;obchodní prostor;53,5;20330;;;;;
+Hlinky 80;1B;1;obchodní prostor;206,8;78584;;;;;regulovatelná příčka
+Hlinky 80;2A;2;1+kk;29,7;25700;;;;;terasa 10,7 m²
+Hlinky 80;2B;2;1+kk;29,6;25400;;;;;terasa 9,3 m²
+Hlinky 80;2C;2;1+kk;30,4;26100;;;;;terasa 9,3 m²
+Hlinky 80;2D;2;1+kk;30,7;25500;;;;;terasa 4,6 m²
+Hlinky 80;2E;2;1+kk;29,0;24100;;;;;terasa 4,6 m²
+Hlinky 80;2F;2;1+kk;29,2;24300;;;;;terasa 4,6 m²
+Hlinky 80;2G;2;1+kk;29,6;24600;;;;;terasa 4,6 m²
+Hlinky 80;2H;2;1+kk;29,3;24400;;;;;terasa 4,6 m²
+Hlinky 80;2I;2;1+kk;29,2;24300;;;;;terasa 4,6 m²
+Hlinky 80;2J;2;1+kk;30,4;25300;;;;;terasa 4,7 m²
+Hlinky 80;2K;2;1+kk;31,2;26700;;;;;terasa 9,3 m²
+Hlinky 80;2L;2;1+kk;30,0;25700;;;;;terasa 9,3 m²
+Hlinky 80;2M;2;1+kk;30,0;25900;;;;;terasa 10,2 m²
+Hlinky 80;3A;3;1+kk;30,0;24900;;;;;terasa 4,2 m²
+Hlinky 80;3B;3;1+kk;30,0;24900;;;;;terasa 4,6 m²
+Hlinky 80;3C;3;1+kk;30,8;25500;;;;;terasa 4,2 m²
+Hlinky 80;3D;3;1+kk;30,9;25700;;;;;terasa 4,6 m²
+Hlinky 80;3E;3;1+kk;29,4;24500;;;;;terasa 4,6 m²
+Hlinky 80;3F;3;1+kk;29,4;24500;;;;;terasa 4,6 m²
+Hlinky 80;3G;3;1+kk;29,6;24600;;;;;terasa 4,6 m²
+Hlinky 80;3H;3;1+kk;29,5;24500;;;;;terasa 4,6 m²
+Hlinky 80;3I;3;1+kk;29,7;24700;;;;;terasa 4,6 m²
+Hlinky 80;3J;3;1+kk;30,7;25500;;;;;terasa 4,7 m²
+Hlinky 80;3K;3;1+kk;31,5;26100;;;;;terasa 4,2 m²
+Hlinky 80;3L;3;1+kk;30,4;25300;;;;;terasa 4,7 m²
+Hlinky 80;3M;3;1+kk;30,2;25000;;;;;terasa 4,2 m²
+Hlinky 80;4A;4;1+kk;30,0;24900;;;;;terasa 4,2 m²
+Hlinky 80;4B;4;1+kk;30,0;24900;;;;;terasa 4,6 m²
+Hlinky 80;4C;4;1+kk;30,8;25500;;;;;terasa 4,2 m²
+Hlinky 80;4D;4;1+kk;30,9;25700;;;;;terasa 4,6 m²
+Hlinky 80;4E;4;1+kk;29,4;24500;;;;;terasa 4,6 m²
+Hlinky 80;4F;4;1+kk;29,4;24500;;;;;terasa 4,6 m²
+Hlinky 80;4G;4;1+kk;29,6;24600;;;;;terasa 4,6 m²
+Hlinky 80;4H;4;1+kk;29,5;24500;;;;;terasa 4,6 m²
+Hlinky 80;4I;4;1+kk;29,7;24700;;;;;terasa 4,6 m²
+Hlinky 80;4J;4;1+kk;30,7;25500;;;;;terasa 4,7 m²
+Hlinky 80;4K;4;1+kk;31,5;26100;;;;;terasa 4,2 m²
+Hlinky 80;4L;4;1+kk;30,4;25300;;;;;terasa 4,7 m²
+Hlinky 80;4M;4;1+kk;30,2;25000;;;;;terasa 4,2 m²
+Hlinky 80;5A;5;1+kk;30,0;24900;;;;;terasa 4,2 m²
+Hlinky 80;5B;5;1+kk;30,0;24900;;;;;terasa 4,6 m²
+Hlinky 80;5C;5;1+kk;30,8;25500;;;;;terasa 4,2 m²
+Hlinky 80;5D;5;1+kk;30,9;25700;;;;;terasa 4,6 m²
+Hlinky 80;5E;5;1+kk;29,4;24500;;;;;terasa 4,6 m²
+Hlinky 80;5F;5;1+kk;29,4;24500;;;;;terasa 4,6 m²
+Hlinky 80;5G;5;1+kk;29,6;24600;;;;;terasa 4,6 m²
+Hlinky 80;5H;5;1+kk;29,5;24500;;;;;terasa 4,6 m²
+Hlinky 80;5I;5;1+kk;29,7;24700;;;;;terasa 4,6 m²
+Hlinky 80;5J;5;1+kk;30,7;25500;;;;;terasa 4,7 m²
+Hlinky 80;5K;5;1+kk;31,5;26100;;;;;terasa 4,2 m²
+Hlinky 80;5L;5;1+kk;30,4;25300;;;;;terasa 4,7 m²
+Hlinky 80;5M;5;1+kk;30,2;25000;;;;;terasa 4,2 m²
+Hlinky 80;6A;6;1+kk;30,0;24900;;;;;terasa 4,2 m²
+Hlinky 80;6B;6;1+kk;30,0;24900;;;;;terasa 4,6 m²
+Hlinky 80;6C;6;2+kk;69,4;42000;;;;;bezbariérová, terasa 9,1 m²
+Hlinky 80;6E;6;1+kk;29,4;24500;;;;;terasa 4,6 m²
+Hlinky 80;6F;6;1+kk;29,4;24500;;;;;terasa 4,6 m²
+Hlinky 80;6G;6;1+kk;29,6;24600;;;;;terasa 4,6 m²
+Hlinky 80;6H;6;1+kk;29,5;24500;;;;;terasa 4,6 m²
+Hlinky 80;6I;6;1+kk;29,7;24700;;;;;terasa 4,6 m²
+Hlinky 80;6J;6;1+kk;30,7;25500;;;;;terasa 4,7 m²
+Hlinky 80;6K;6;1+kk;31,5;26100;;;;;terasa 4,2 m²
+Hlinky 80;6L;6;1+kk;30,4;25300;;;;;terasa 4,7 m²
+Hlinky 80;6M;6;1+kk;30,2;25000;;;;;terasa 4,2 m²
+Hlinky 80;7A;7;1+kk;30,0;24900;;;;;terasa 4,2 m²
+Hlinky 80;7B;7;1+kk;30,0;24900;;;;;terasa 4,6 m²
+Hlinky 80;7C;7;2+kk;65,0;39500;;;;;bezbariérová, terasa 9,3 m²
+Hlinky 80;7D;7;1+kk;25,3;21200;;;;;terasa 4,7 m²
+Hlinky 80;7E;7;1+kk;25,2;21100;;;;;terasa 4,7 m²
+Hlinky 80;7F;7;2+kk;52,6;46400;;;;;velká terasa, terasa 93,7 m²
+Hlinky 80;7G;7;1+kk;40,6;47400;;;;;velká terasa, terasa 87,3 m²

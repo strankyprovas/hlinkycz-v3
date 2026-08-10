@@ -20,10 +20,11 @@ VYSTUP = os.path.join(ZDE, "..", "byty", "data", "jednotky.json")
 STAVY = {"volný", "rezervovaný", "obsazený"}
 
 
-def karta_pro(dispozice):
+def karta_pro(dispozice, oznaceni=""):
     """Dokud nejsou karty jednotlivých bytů, míříme na vzorové."""
     if dispozice.startswith("obchodní"):
-        return "obchodni-1a.html"
+        # obchodní prostory mají vlastní karty 1A / 1B / 1C
+        return f"obchodni-{oznaceni.lower()}.html" if oznaceni else "obchodni-1a.html"
     return "1kk-vzor.html" if dispozice == "1+kk" else "2kk-vzor.html"
 
 
@@ -48,6 +49,8 @@ def main(cesta):
         if not dispozice:
             preskoceno += 1
             continue
+        # byty vč. energií a DPH, komerce nájem bez DPH — dle zadání Noviry
+        rezim = "komerce" if dispozice.startswith("obchodní") else "byt"
 
         stav = (r.get("stav") or "").strip().lower()
         if stav and stav not in STAVY:
@@ -61,12 +64,13 @@ def main(cesta):
             "dispozice": dispozice,
             "plocha": cislo(r.get("plocha_m2"), desetinne=True) or 0,
             "cena": cislo(r.get("cena_kc_mesic")),
-            "stav": stav or "volný",
+            "stav": stav,   # prázdné = dostupnost zatím nedoplněná, nevydávat za volné
             "nastehovani": (r.get("nastehovani") or "").strip(),
             "vystehovani": (r.get("vystehovani") or "").strip(),
             "pdf": (r.get("pdf_odkaz") or "").strip(),
             "poznamka": (r.get("poznamka") or "").strip(),
-            "karta": karta_pro(dispozice),
+            "karta": karta_pro(dispozice, (r.get("oznaceni") or "").strip()),
+            "cenovy_rezim": rezim,
         })
 
     import datetime

@@ -1,0 +1,10 @@
+# Podklady od klienta — CAD výkresy, projektová dokumentace, materiály pro grafiku.
+# Do veřejného repozitáře nepatří.
+podklady-pudorysy-2026-07/
+podklady/pro-grafiku/
+podklady/*.zip
+.DS_Store
+
+# Klientské dokumenty
+*.docx
+*.xlsx
