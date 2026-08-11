@@ -206,6 +206,7 @@
       .stav.rezervovany { background: var(--rezerv-bg); color: var(--rezerv); }
       .stav.obsazeny { background: var(--obsazen-bg); color: var(--obsazen); }
       .stav.neznamy { background: rgba(0,0,0,.05); color: var(--muted); }
+      .bezkarty { color: var(--muted); }
       .cenapozn { display: block; font-size: 11px; font-weight: 400; color: var(--muted);
                   letter-spacing: .01em; margin-top: 1px; }
       .detail {
@@ -267,7 +268,7 @@
           <p class="crumbs"><a href="../">Úvod</a> &nbsp;/&nbsp; Byty a prostory</p>
           <h1>Byty a prostory</h1>
           <p>
-            Kompletní přehled jednotek v obou domech. Vyberte velikost, termín nastěhování
+            Kompletní přehled jednotek ve všech třech domech. Vyberte velikost, termín nastěhování
             nebo si nechte zobrazit jen to, co je právě volné — a z každého řádku se
             prokliknete na kartu jednotky s půdorysem.
           </p>
@@ -281,7 +282,7 @@
             </div>
             <div class="field">
               <label for="f-dum">Dům</label>
-              <select id="f-dum"><option value="">Oba domy</option></select>
+              <select id="f-dum"><option value="">Všechny domy</option></select>
             </div>
             <div class="field">
               <label for="f-nast">Nastěhování od</label>
@@ -374,6 +375,13 @@
         });
       }
 
+      function tvarJednotka(n) {
+        return n === 1 ? "jednotka" : n >= 2 && n <= 4 ? "jednotky" : "jednotek";
+      }
+      function tvarVolna(n) {
+        return n === 1 ? "volná jednotka" : n >= 2 && n <= 4 ? "volné jednotky" : "volných jednotek";
+      }
+
       function poradiDispozic(a, b) {
         const rank = (d) => {
           if (d.startsWith("obchodní")) return 99;
@@ -390,7 +398,7 @@
         skupiny.forEach((d) => {
           const vse = jednotky.filter((j) => j.dispozice === d);
           const volne = vse.filter((j) => j.stav === "volný").length;
-          const maDost = jednotky.some((j) => j.stav);
+          const bezStavu = vse.filter((j) => !j.stav).length;
           const btn = document.createElement("button");
           btn.className = "group";
           btn.type = "button";
@@ -398,11 +406,14 @@
           const nazev = d === "obchodní prostor" ? "Obchodní prostory" : d;
           btn.innerHTML =
             `<span class="lbl">${nazev}</span>` +
-            (maDost
-              ? `<span class="n"><b>${volne}</b>${volne === 1 ? "volná jednotka" : volne >= 2 && volne <= 4 ? "volné jednotky" : "volných jednotek"}</span>` +
-                `<span class="sub">z celkem ${vse.length}</span>`
-              : `<span class="n"><b>${vse.length}</b>${vse.length === 1 ? "jednotka" : vse.length >= 2 && vse.length <= 4 ? "jednotky" : "jednotek"}</span>` +
-                `<span class="sub">dostupnost se doplňuje</span>`);
+            (bezStavu === vse.length
+              // dostupnost zatím neznáme u ničeho -> hlásit jen počet
+              ? `<span class="n"><b>${vse.length}</b>${tvarJednotka(vse.length)}</span>` +
+                `<span class="sub">dostupnost se doplňuje</span>`
+              : `<span class="n"><b>${volne}</b>${tvarVolna(volne)}</span>` +
+                `<span class="sub">${bezStavu
+                    ? `z ${vse.length - bezStavu} ověřených · u ${bezStavu} se doplňuje`
+                    : `z celkem ${vse.length}`}</span>`);
           btn.addEventListener("click", () => {
             state.disp = state.disp === d ? "" : d;
             $("f-disp").value = state.disp;
@@ -440,16 +451,21 @@
               `<td class="num">${formatMesic(j.nastehovani)}</td>` +
               `<td class="num">${j.vystehovani ? formatMesic(j.vystehovani) : "—"}</td>` +
               `<td><span class="stav ${tridaStavu}">${popisStavu}</span></td>` +
-              `<td><a class="detail" href="${j.karta}">${j.karta.includes("vzor") ? "Vzorová karta" : "Karta jednotky"}</a>` +
+              `<td>` +
+              (j.karta
+                ? `<a class="detail" href="${j.karta}">${j.karta.includes("vzor") ? "Vzorová karta" : "Karta jednotky"}</a>`
+                : `<span class="bezkarty">—</span>`) +
               (j.pdf ? ` <a class="detail pdf" href="${j.pdf}" download>PDF</a>` : "") + `</td>`;
             tbody.appendChild(tr);
           });
 
         $("empty").hidden = vybrane.length > 0;
         const volnych = vybrane.filter((j) => j.stav === "volný").length;
-        $("count").innerHTML = jednotky.some((j) => j.stav)
-          ? `Zobrazeno <b>${vybrane.length}</b> jednotek, z toho <b>${volnych}</b> volných`
-          : `Zobrazeno <b>${vybrane.length}</b> jednotek · dostupnost a termíny se právě doplňují`;
+        const bezStavu = vybrane.filter((j) => !j.stav).length;
+        let popis = `Zobrazeno <b>${vybrane.length}</b> jednotek`;
+        if (bezStavu < vybrane.length) popis += `, z toho <b>${volnych}</b> volných`;
+        if (bezStavu) popis += ` · u <b>${bezStavu}</b> se dostupnost doplňuje`;
+        $("count").innerHTML = popis;
 
         document.querySelectorAll(".group").forEach((btn) => {
           const lbl = btn.querySelector(".lbl").textContent;

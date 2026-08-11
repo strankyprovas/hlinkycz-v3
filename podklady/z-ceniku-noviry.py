@@ -78,7 +78,7 @@ def poznamka(typ, terasa):
     try:
         if terasa and float(terasa.replace(",", ".")) > 0:
             m2 = f"{round(float(terasa.replace(',', '.')), 1):.1f}".replace(".", ",")
-            casti.append(f"terasa {m2} m²")
+            casti.append(f"balkon/terasa {m2} m²")
     except ValueError:
         pass
     return ", ".join(casti)

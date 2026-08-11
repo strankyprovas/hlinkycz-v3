@@ -20,12 +20,21 @@ VYSTUP = os.path.join(ZDE, "..", "byty", "data", "jednotky.json")
 STAVY = {"volný", "rezervovaný", "obsazený"}
 
 
-def karta_pro(dispozice, oznaceni=""):
-    """Dokud nejsou karty jednotlivých bytů, míříme na vzorové."""
+def karta_pro(dispozice, oznaceni="", dum=""):
+    """Dokud nejsou karty jednotlivých bytů, míříme na vzorové.
+
+    Hlinky 70 zatím žádné karty nemají a vzorové karty z novostaveb by tam
+    byly zavádějící — u nich radši žádný odkaz."""
+    if dum == "Hlinky 70":
+        return ""
     if dispozice.startswith("obchodní"):
         # obchodní prostory mají vlastní karty 1A / 1B / 1C
         return f"obchodni-{oznaceni.lower()}.html" if oznaceni else "obchodni-1a.html"
-    return "1kk-vzor.html" if dispozice == "1+kk" else "2kk-vzor.html"
+    if dispozice == "1+kk":
+        return "1kk-vzor.html"
+    if dispozice == "2+kk":
+        return "2kk-vzor.html"
+    return ""   # 1+1 a 2+1 vzorovou kartu nemají
 
 
 def cislo(hodnota, desetinne=False):
@@ -69,7 +78,8 @@ def main(cesta):
             "vystehovani": (r.get("vystehovani") or "").strip(),
             "pdf": (r.get("pdf_odkaz") or "").strip(),
             "poznamka": (r.get("poznamka") or "").strip(),
-            "karta": karta_pro(dispozice, (r.get("oznaceni") or "").strip()),
+            "karta": karta_pro(dispozice, (r.get("oznaceni") or "").strip(),
+                               (r.get("dum") or "").strip()),
             "cenovy_rezim": rezim,
         })
 
