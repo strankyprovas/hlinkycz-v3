@@ -502,6 +502,14 @@
       @media print {
         .plan-modal { display: none !important; }
       }
+        .price-breakdown { display: flex; flex-direction: column; gap: 12px; margin: 14px 0 10px; }
+    .price-item { border: 1px solid #e6e2d8; border-radius: 12px; padding: 14px 16px; background: #fafaf7; }
+    .price-item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+    .price-item-name { font-weight: 600; color: #2a2a28; }
+    .price-item-area { font-size: 13px; color: #8a8372; white-space: nowrap; }
+    .price-item-value { font-size: 24px; font-weight: 700; color: #1a1a18; margin-top: 4px; }
+    .price-item-value small { font-size: 14px; font-weight: 500; color: #8a8372; }
+    .price-item-note { font-size: 12.5px; color: #8a8372; margin-top: 4px; line-height: 1.5; }
     </style>
   </head>
   <body>
@@ -540,12 +548,27 @@
           </svg>
           Hlinky 74, Brno-střed, 603 00
         </div>
-        <div class="card-dispo">Komerční jednotka / 71,7 m² / přízemí</div>
+        <div class="card-dispo">Komerční jednotka / 71,7 m² celkem / přízemí</div>
 
-        <div class="card-price">14 300 Kč / měsíc</div>
-        <div class="card-price-note" style="margin-top:-8px; font-weight:600;">+ 1 504 Kč / měsíc – servisní poplatek</div>
+        <div class="price-breakdown">
+          <div class="price-item">
+            <div class="price-item-head">
+              <span class="price-item-name">Obchodní jednotka</span>
+              <span class="price-item-area">37,6 m²</span>
+            </div>
+            <div class="price-item-value">14 300 Kč <small>/ měsíc</small></div>
+            <div class="price-item-note">obchodní plocha, chodba a sociální zázemí &middot; + servisní poplatek 1&nbsp;504 Kč / měsíc</div>
+          </div>
+          <div class="price-item">
+            <div class="price-item-head">
+              <span class="price-item-name">Zázemí / sklad</span>
+              <span class="price-item-area">34,1 m²</span>
+            </div>
+            <div class="price-item-value">9 071 Kč <small>/ měsíc</small></div>
+            <div class="price-item-note">lze pronajmout společně s&nbsp;obchodní jednotkou</div>
+          </div>
+        </div>
         <div class="card-price-note">
-          Cena za obchodní jednotku. Sklad 9&nbsp;071 Kč / měsíc.
           Ceny bez DPH, k&nbsp;nájmu se připočítávají zálohy na energie.
           Dostupné od 08/2027. Parkování v&nbsp;garáži za poplatek.
         </div>
