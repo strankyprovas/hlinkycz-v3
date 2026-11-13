@@ -18,7 +18,7 @@
     </title>
     <meta
       name="description"
-      content="Moderní nájemní byty 1+kk a 2+kk v novostavbě Hlinky 80, Brno-střed. Obchodní prostory v přízemí. Podzemní parkování, tramvaj před domem. Dokončení 08/2027."
+      content="Moderní nájemní byty 1+kk a 2+kk v novostavbě Hlinky 80, Brno-střed. Obchodní prostory v přízemí. Podzemní parkování, tramvaj před domem. Zahájení pronájmu 09/2027."
     />
     <link rel="canonical" href="https://hlinky.cz/" />
     <meta property="og:type" content="website" />
@@ -3228,12 +3228,12 @@
             </div>
             <div class="timeline-item future">
               <div class="timeline-dot"></div>
-              <div class="timeline-date">03/2027</div>
+              <div class="timeline-date">04/2027</div>
               <div class="timeline-label">Vzorový byt k prohlídkám</div>
             </div>
             <div class="timeline-item future">
               <div class="timeline-dot"></div>
-              <div class="timeline-date">08/2027</div>
+              <div class="timeline-date">09/2027</div>
               <div class="timeline-label">Zahájení pronájmu</div>
             </div>
           </div>
@@ -3247,8 +3247,8 @@
                 style="width: 0"
               ></div>
             </div>
-            <div class="timeline-progress-label">
-              Dokončení výstavby (odhad ke 03/2026)
+            <div class="timeline-progress-label" id="progress-label">
+              Postup harmonogramu
             </div>
           </div>
         </div>
@@ -4070,7 +4070,17 @@
         const bar = document.getElementById("progress-bar");
         const pct = document.getElementById("progress-pct");
         if (!bar || !pct) return;
-        const target = 45;
+        const label = document.getElementById("progress-label");
+        const start = new Date(2025, 8, 1); // 09/2025 zahájení výstavby
+        const end = new Date(2027, 8, 1);   // 09/2027 zahájení pronájmu
+        const now = new Date();
+        const target = Math.round(
+          Math.max(0, Math.min(1, (now - start) / (end - start))) * 100
+        );
+        if (label) {
+          const mm = String(now.getMonth() + 1).padStart(2, "0");
+          label.textContent = "Postup harmonogramu k " + mm + "/" + now.getFullYear();
+        }
         let played = false;
         const io = new IntersectionObserver(
           (entries) => {
