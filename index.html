@@ -4,13 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MTTJ1G62Z4"></script>
+    <!-- Google Analytics – aktivuje se až po souhlasu (cookie lišta) -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-MTTJ1G62Z4');
+      function loadGA(){
+        if(window.__gaLoaded) return; window.__gaLoaded = true;
+        var s = document.createElement('script'); s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MTTJ1G62Z4';
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', 'G-MTTJ1G62Z4', { anonymize_ip: true });
+      }
+      if (localStorage.getItem('hlinky_cc') === 'accept') { loadGA(); }
     </script>
 
     <title>
@@ -3805,9 +3811,9 @@
             © 2026 Novira Estate SE. Všechna práva vyhrazena.
           </div>
           <div class="footer-legal">
-            <a href="#">GDPR</a>
+            <a href="zasady-ochrany-osobnich-udaju.html">GDPR</a>
             <a href="#">Obchodní podmínky</a>
-            <a href="#">Cookies</a>
+            <a href="zasady-ochrany-osobnich-udaju.html#cookies">Cookies</a>
           </div>
         </div>
       </div>
@@ -4215,5 +4221,16 @@
         });
       });
     </script>
-  </body>
+  <div id="cc-bar" style="display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;background:#1a1a1a;color:#f2efe9;border-radius:14px;padding:16px 20px;box-shadow:0 12px 40px rgba(0,0,0,.3);font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;font-size:.9rem;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+  <span style="flex:1 1 300px">Používáme cookies pro anonymní měření návštěvnosti (Google Analytics). Více v <a href="zasady-ochrany-osobnich-udaju.html" style="color:#d8b57a">zásadách ochrany osobních údajů</a>.</span>
+  <span style="display:flex;gap:10px">
+    <button onclick="ccSet('reject')" style="cursor:pointer;border:1px solid rgba(242,239,233,.4);background:transparent;color:#f2efe9;border-radius:999px;padding:9px 18px;font-size:.88rem">Odmítnout</button>
+    <button onclick="ccSet('accept')" style="cursor:pointer;border:0;background:#c79a52;color:#1a1a1a;border-radius:999px;padding:9px 20px;font-weight:700;font-size:.88rem">Přijmout</button>
+  </span>
+</div>
+<script>
+  (function(){ if(!localStorage.getItem('hlinky_cc')){ var b=document.getElementById('cc-bar'); if(b) b.style.display='flex'; } })();
+  function ccSet(v){ localStorage.setItem('hlinky_cc', v); var b=document.getElementById('cc-bar'); if(b) b.style.display='none'; if(v==='accept' && typeof loadGA==='function') loadGA(); }
+</script>
+</body>
 </html>
